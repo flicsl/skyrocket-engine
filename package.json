@@ -1,0 +1,25 @@
+{
+  "name": "skyrocket-engine",
+  "version": "0.0.1",
+  "description": "An engine for networked simulations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flicsl/skyrocket-engine.git"
+  },
+  "keywords": [
+    "engine",
+    "network",
+    "simulation",
+    "game"
+  ],
+  "author": "Feliciano Santana Lima <fsfelicianosantana@gmail.com> (https://thenameisflic.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flicsl/skyrocket-engine/issues"
+  },
+  "homepage": "https://github.com/flicsl/skyrocket-engine#readme"
+}
