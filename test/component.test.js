@@ -3,6 +3,11 @@ import { spy } from "sinon";
 import { expect } from "chai";
 
 describe("Component", () => {
+    it("should throw error if any of the keys given to is not a function", () => {
+        const component = new Component();
+        expect(component.registerEventListeners.bind(this, {abc: "abc"})).to.throw(Error);
+    });
+
     it("should fire registered event listeners with event data", () => {
         const component = new Component();
         const event = {
