@@ -1,6 +1,6 @@
 {
   "name": "skyrocket-engine",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An engine for networked simulations.",
   "main": "dist/index.js",
   "scripts": {

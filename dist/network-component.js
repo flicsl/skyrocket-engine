@@ -32,7 +32,7 @@ var NetworkComponent = exports.NetworkComponent = function (_Component) {
     _createClass(NetworkComponent, [{
         key: "registerMessageHandlers",
         value: function registerMessageHandlers(handlers) {
-            this._messageHandlers = Object.assign({}, handlers);
+            this._messageHandlers = Object.assign({}, this._messageHandlers, handlers);
         }
     }, {
         key: "getMessageHandler",
