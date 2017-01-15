@@ -1,10 +1,10 @@
-import { GameComponent } from "../lib/game-component";
+import { Component } from "../lib";
 import { spy } from "sinon";
 import { expect } from "chai";
 
-describe("Game Component", () => {
+describe("Component", () => {
     it("should fire registered event listeners with event data", () => {
-        const component = new GameComponent();
+        const component = new Component();
         const event = {
             type: "EVENT",
             data1: "data1",
@@ -22,8 +22,8 @@ describe("Game Component", () => {
     });
 
     it("should listen for events emitted by children", () => {
-        const component = new GameComponent();
-        const child = new GameComponent();
+        const component = new Component();
+        const child = new Component();
         const callback = spy();
         const event = {
             type: "EVENT",
