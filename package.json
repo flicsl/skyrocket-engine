@@ -1,13 +1,14 @@
 {
   "name": "skyrocket-engine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An engine for networked simulations.",
   "main": "dist/index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel lib -d dist",
     "lint": "./node_modules/.bin/eslint **/*.js",
     "test": "./node_modules/.bin/mocha",
-    "test:auto": "./node_modules/.bin/mocha -w"
+    "test:auto": "./node_modules/.bin/mocha -w",
+    "build:publish": "npm run lint && npm run test && npm run build && npm publish"
   },
   "repository": {
     "type": "git",
