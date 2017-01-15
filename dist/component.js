@@ -33,7 +33,22 @@ var Component = exports.Component = function () {
     }, {
         key: "registerEventListeners",
         value: function registerEventListeners(eventListeners) {
-            if (eventListeners !== null && (typeof eventListeners === "undefined" ? "undefined" : _typeof(eventListeners)) === "object") this._eventListeners = Object.assign({}, this._eventListeners, eventListeners);else throw new Error("The passed event listeners object is not valid. You must pass an object where\n                            the keys are the event types and the values are the callback.");
+            // TODO: validate every individual key to ensure listeners are valid
+            if (this._assertValidEventListeners(eventListeners)) this._eventListeners = Object.assign({}, this._eventListeners, eventListeners);else throw new Error("The passed event listeners object is not valid. You must pass an object where\n                            the keys are the event types and the values are the callback.");
+        }
+    }, {
+        key: "_assertValidEventListeners",
+        value: function _assertValidEventListeners(eventListeners) {
+            var valid = true;
+            if (eventListeners !== null && (typeof eventListeners === "undefined" ? "undefined" : _typeof(eventListeners)) === "object") {
+                for (var key in eventListeners) {
+                    if (typeof eventListeners[key] !== "function" || typeof key !== "string") {
+                        valid = false;
+                        break;
+                    }
+                }
+            } else valid = false;
+            return valid;
         }
     }, {
         key: "fire",

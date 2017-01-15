@@ -10,6 +10,6 @@ describe("NetworkComponent", () => {
     it("should allow message retrieval", () => {
         const component = new NetworkComponent();
         component.registerMessageHandlers({1: () => {}});
-        expect(component.getMessageHandler(1)).to.be.a('function');
+        expect(component.getMessageHandler(1)).to.be.a("function");
     });
 });
