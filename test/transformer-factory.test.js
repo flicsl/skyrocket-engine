@@ -31,7 +31,7 @@ describe("TransformerFactory", () => {
             };
             const transformer = TransformerFactory.create(schema);
             const value = 254;
-            const decoded = transformer.decodeProperty("attr", transformer.encodeProperty("attr", value));
+            const decoded = transformer.decodeAttribute("attr", transformer.encodeAttribute("attr", value));
             expect(decoded).to.equal(value);
         });
 
@@ -45,8 +45,26 @@ describe("TransformerFactory", () => {
             };
             const transformer = TransformerFactory.create(schema);
             const value = 65450;
-            const decoded = transformer.decodeProperty("attr", transformer.encodeProperty("attr", value));
+            const decoded = transformer.decodeAttribute("attr", transformer.encodeAttribute("attr", value));
             expect(decoded).to.equal(value);
+        });
+
+        it("should encode and decode objects", () => {
+            const schema = {
+                network: {
+                    id: {binaryFormat: "uint8"},
+                    x: {binaryFormat: "uint16"},
+                    y: {binaryFormat: "uint16"}
+                }
+            };
+            const transformer = TransformerFactory.create(schema);
+            const obj = {
+                id: 211,
+                x: 312,
+                y: 64000
+            };
+            const decoded = transformer.decode(transformer.encode(obj));
+            expect(decoded).to.eql(obj);
         });
     });
 });
